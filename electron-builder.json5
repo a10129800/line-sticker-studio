@@ -1,0 +1,44 @@
+/**
+ * LINE Sticker Studio - Electron Builder Windows x64 打包設定檔
+ */
+{
+  "appId": "com.line.stickerstudio",
+  "productName": "LINE Sticker Studio",
+  "copyright": "Copyright © 2026 LINE Sticker Studio",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "build/icon.ico",
+    "package.json"
+  ],
+  "extraMetadata": {
+    "main": "dist-electron/main.js"
+  },
+  "win": {
+    "icon": "build/icon.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "${productName}-Setup-${version}-${arch}.${ext}"
+  },
+  "nsis": {
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico",
+    "installerHeaderIcon": "build/icon.ico",
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "LINE Sticker Studio",
+    "uninstallDisplayName": "${productName}",
+    "deleteAppDataOnUninstall": false
+  }
+}

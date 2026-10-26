@@ -53,8 +53,32 @@ npm run test
 ```
 包含專案 UUID 唯一性、formatBytes 轉換、LINE 官方靜態貼圖規格限制（張數、尺寸、偶數像素、容量）與排序重編測試。
 
-### 4. 產品正式打包
+### 4. 產品正式打包 (網頁版)
 ```bash
 npm run build
 ```
 產出靜態發布包至 `dist/` 目錄。
+
+---
+
+## 四、Windows 桌面版 (Electron 整合)
+
+LINE Sticker Studio 提供完整的 Windows 桌面版支援，使用 Electron 桌面容器與 NSIS 安裝包：
+
+### 1. 啟動桌面版開發模式
+```bash
+npm run dev:desktop
+```
+自動編譯 Electron 主進程並以即時熱更新 (HMR) 載入桌面視窗。
+
+### 2. 建置桌面版資源
+```bash
+npm run build:desktop
+```
+產出桌面版相對路徑靜態網頁（`dist/`）與編譯後的主進程及預載腳本（`dist-electron/`）。
+
+### 3. 製作 Windows x64 安裝檔 (NSIS)
+```bash
+npm run dist:win
+```
+使用 `electron-builder` 打包產出 Windows 安裝執行檔至 `release/` 目錄（如 `LINE Sticker Studio-Setup-1.0.1-x64.exe`）。
